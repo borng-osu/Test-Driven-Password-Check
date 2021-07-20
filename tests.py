@@ -28,6 +28,12 @@ class Testcase(unittest.TestCase):
         self.assertEqual(check_pwd(pwd), False,
                          msg='{} returned {}'.format(pwd, check_pwd(pwd)))
 
+    def test5(self):
+        # Tests if string without digits returns False
+        pwd = "$$$ABCabc"
+        self.assertEqual(check_pwd(pwd), False,
+                         msg='{} returned {}'.format(pwd, check_pwd(pwd)))
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
