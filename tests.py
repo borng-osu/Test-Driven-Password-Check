@@ -11,14 +11,20 @@ class Testcase(unittest.TestCase):
                          msg='{} returned {}'.format(pwd, check_pwd(pwd)))
 
     def test2(self):
-        # Tests if string without symbol returns False
+        # Tests if string without symbols returns False
         pwd = "abc123ABC"
         self.assertEqual(check_pwd(pwd), False,
                          msg='{} returned {}'.format(pwd, check_pwd(pwd)))
 
     def test3(self):
-        # Tests if string without lowercase letter returns False
+        # Tests if string without lowercase letters returns False
         pwd = "$$$123ABC"
+        self.assertEqual(check_pwd(pwd), False,
+                         msg='{} returned {}'.format(pwd, check_pwd(pwd)))
+
+    def test4(self):
+        # Tests if string without uppercase letters returns False
+        pwd = "$$$123abc"
         self.assertEqual(check_pwd(pwd), False,
                          msg='{} returned {}'.format(pwd, check_pwd(pwd)))
 

@@ -1,5 +1,6 @@
 import string
 
+
 def check_pwd(pwd):
     # Checks if pwd is a string
     if type(pwd) is str:
