@@ -9,21 +9,21 @@ def check_pwd(pwd):
             # Initializes valid symbols and symbol check
             symbols = "~`!@#$%^&*()_+-="
             sym_check = False
-            # Initializes lowercase letter count
+            # Initializes lowercase and uppercase checks
             low_check = False
+            up_check = False
             # Iterates through pwd to check if valid characters present
             for i in range(len(pwd)):
-                if sym_check and low_check:
+                if sym_check and low_check and up_check:
                     break
                 elif pwd[i] in symbols:
-                    sym_check += True
+                    sym_check = True
                 elif pwd[i] in string.ascii_lowercase:
-                    low_check += True
-            # Returns False if no symbols in pwd
-            if not sym_check:
-                return False
-            # Returns False if no lowercase letters in pwd
-            if not low_check:
+                    low_check = True
+                elif pwd[i] in string.ascii_uppercase:
+                    up_check = True
+            # Returns False if checks not passed
+            if not sym_check or not low_check or not up_check:
                 return False
             return True
     return False
