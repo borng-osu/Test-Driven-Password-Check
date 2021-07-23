@@ -8,7 +8,7 @@ def check_pwd(pwd):
     # Checks if pwd is a string
     if type(pwd) is str:
         # Checks if pwd length is valid
-        if 7 < len(pwd) < 20:
+        if 7 < len(pwd) < 21:
             # Initializes valid symbols and symbol check
             symbols = "~`!@#$%^&*()_+-="
             sym_check = False
@@ -18,7 +18,7 @@ def check_pwd(pwd):
             digit_check = False
             # Iterates through pwd to check if valid characters present
             for i in range(len(pwd)):
-                if sym_check and low_check and up_check:
+                if sym_check and low_check and up_check and digit_check:
                     break
                 elif pwd[i] in symbols:
                     sym_check = True
